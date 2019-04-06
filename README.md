@@ -7,8 +7,8 @@
 ## Overview
 
 
-Figuring out what to eat can be a difficult task! The solution: receipe finder. 
-Receipe Finder can help you find receipes based on the ingredients you have at home. These recipes will most
+Figuring out what to eat can be a difficult task! The solution: recipe finder. 
+Recipe Finder can help you find receipes based on the ingredients you have at home. These recipes will most
 closely match your specifications. 
 
 
