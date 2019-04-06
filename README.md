@@ -49,17 +49,13 @@ An Example List with Embedded Items:
 
 
 
-/list/create - page for creating a new shopping list
-
-![list create](documentation/list-create.png)
-
-
+ page for finding recipe 
 
 ![list](documentation/wireframe-1.jpg)
 
+page for logging in 
 
-
-![list](documentation/wireframe-2.jpg)
+![list](documentation/wireframe-3.jpg)
 
 ## Site map
 
