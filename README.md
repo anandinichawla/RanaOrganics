@@ -94,9 +94,9 @@ The site map is subject to change as the project progresses.
 10 points total out of 8 required points
 
 
-## [Link to Initial Main Project File](app.js) 
+## [Link to Initial Main Project File](/src/app.js) 
 
-initial main project has been added on this git repo 
+
 
 ## Annotations / References Used
 
