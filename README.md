@@ -47,23 +47,16 @@ An Example List with Embedded Items:
 
 ## Wireframes
 
+(documentation/wireframe-1.jpg)
 
 
-/list/create - page for creating a new shopping list
 
-![list create](documentation/list-create.png)
-
-/list - page for showing all shopping lists
-
-![list](documentation/wireframe-1.jpg)
-
-/list/slug - page for showing specific shopping list
-
-![list](documentation/wireframe2.jpg)
+(documentation/wireframe-2.jpg)
 
 ## Site map
 
 The site map is subject to change as the project progresses.
+
 (documentation/Sitemap.png)
 
 
