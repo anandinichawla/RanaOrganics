@@ -47,7 +47,7 @@ page for items added to shopping cart
 
 ![list](documentation/WF2.jpg)
 
-Option for Checkout 
+Options for Checkout 
 
 ![list](documentation/WF3.jpg)
 
