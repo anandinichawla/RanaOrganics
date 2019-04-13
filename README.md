@@ -56,7 +56,7 @@ Sign In page
 ![list](documentation/WF#4.jpg)
 
 Payment 
-![list](documentation/WF#5.jpg)
+![list](/documentation/WF#5.jpg)
 
 
 ## Site map
