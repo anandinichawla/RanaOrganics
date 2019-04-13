@@ -2,14 +2,11 @@
 
 
 
-# Recipe  Finder 
+# RANA Organics  
 
 ## Overview
 
-
-Figuring out what to eat can be a difficult task! The solution: recipe finder. 
-Recipe Finder can help you find receipes based on the ingredients you have at home. These recipes will most
-closely match your specifications. 
+Grocery Shopping can be a pain! Long lines, overwhelming variety of products. Being healthy is also tough - not as easy an access as the bag of crisps at a local CVS. Rana Organics is the solution to both problems - an ecommerce website for organic, substainable food products, delivering products right at your doorstep. 
 
 
 ## Data Model
@@ -20,42 +17,47 @@ An Example User:
 
 ```javascript
 {
-  username: "anandinichawla",
+  user: "anandinichawla",
   hash: // a password hash,
-  lists: // an array of references to List saved receipes 
+  shoppingCart: // an array of references to items selected 
+  payment: //payment made or not (true or false) 
 }
 ```
 
-An Example List with Embedded Items:
+A Schema for products on site:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", tags: eggs, flour, },
-    { name: "avocado-smash", tags: healthy, sandwich, },
-  ],
-  createdAt: // timestamp
+  imagePath: String, required: true 
+  title: String, required: true
+  description: String, required: true
+  price: String, required: true
+
 }
 ```
-
-
-
-
-
 
 ## Wireframes
 
 
+Items Listed
 
- page for finding recipe 
+![list](documentation/WF#1.jpg)
 
-![list](documentation/wireframe-1.jpg)
+page for items added to shopping cart
 
-page for logging in 
+![list](documentation/WF#2.jpg)
 
-![list](documentation/wireframe-3.jpg)
+Option for Checkout 
+
+![list](documentation/WF#3.jpg)
+
+Sign In page 
+
+![list](documentation/WF#4.jpg)
+
+Payment 
+![list](documentation/WF#5.jpg)
+
 
 ## Site map
 
@@ -69,10 +71,10 @@ The site map is subject to change as the project progresses.
 
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can enter ingredients and find recipes 
-4. as a user, I can save recipes if logged in
-5. as a user, I can add view my saved recipes
-6. as a user, I can delete recipes
+3. as a user, I can add items to my shopping cart
+4. as a user, I can view items saved to my shopping cart
+5. as a user or non-registered user I can place my order 
+
 
 ## Research Topics
 
@@ -89,8 +91,11 @@ The site map is subject to change as the project progresses.
 * (2 points) CSS Framework
     * I will use bootstrap 
     * I will try to make the website responsive 
+* (4 points) Per External API integration 
+    * Stripe Payment Views 
+    * I will add a payment checkout system 
 
-10 points total out of 8 required points
+14 points total out of 8 required points
 
 
 ## [Link to Initial Main Project File](/src/app.js) 
@@ -103,4 +108,5 @@ The site map is subject to change as the project progresses.
 
 1. [passport.js authentication docs](http://passportjs.org/docs) 
 2. [tutorial on bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/) 
-3. [mocha unit testing] (https://github.com/mochajs/mocha) 
+3. [mocha unit testing](https://github.com/mochajs/mocha) 
+4. [Stripe API](https://dashboard.stripe.com/register)
