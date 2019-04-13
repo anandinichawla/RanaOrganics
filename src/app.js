@@ -2,7 +2,6 @@
 var fs = require('fs'); 
 var path = require('path');
 
-var express = require('express'); 
 var app = express(); 
 
 app.set('view engine', 'hbs'); 
@@ -20,3 +19,4 @@ app.use(function(req, res, next){
 app.get('/', (req, res) => {
 	res.render('index'); 
 }); 
+
