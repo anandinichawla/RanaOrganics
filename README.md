@@ -41,22 +41,22 @@ A Schema for products on site:
 
 Items Listed
 
-![list](documentation/WF#1.jpeg)
+![list](documentation/WF#1.jpg)
 
 page for items added to shopping cart
 
-![list](documentation/WF#2.jpeg)
+![list](documentation/WF#2.jpg)
 
 Option for Checkout 
 
-![list](documentation/WF#3.jpeg)
+![list](documentation/WF#3.jpg)
 
 Sign In page 
 
-![list](documentation/WF#4.jpeg)
+![list](documentation/WF#4.jpg)
 
 Payment 
-![list](documentation/WF#5.jpeg)
+![list](documentation/WF#5.jpg)
 
 
 ## Site map
