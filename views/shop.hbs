@@ -1,0 +1,42 @@
+{{!-- {{#each products}}
+    Product!
+{{/each}} --}}
+
+
+<div class = "container"> 
+   
+      <div class="row">
+           
+        {{#if successMessage}}
+            <div class="alert alert-warning">
+                <p>{{successMessage}}</p>
+            </div>
+        {{/if}}
+
+      </div> 
+        <div class="row">
+           {{#each products}}
+                <div class="col-sm-3 col-md-3">
+                    <div class="thumbnail">
+                        <img src="{{this.image}}" class="img-responsive" alt="...">
+                            <div class="caption">
+                                <h5>{{this.title}}</h5>
+                                <div class="clearfix">
+                                    <div class="price">
+                                        <p><strong>${{this.price}}</strong></p>
+                                    </div>
+                                    
+                                    <a href="/add-to-cart/{{this._id}}" class="btn btn-success btn-sm float-right addBtn" role="button">Add</a>
+                                </div>
+                                <br>
+                                <br>
+                                {{!-- <p><a href="#" class="btn btn-default" role="button">Button</a></p> --}}
+                            </div>
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+        
+  
+</div> 
+

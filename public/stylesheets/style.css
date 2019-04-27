@@ -5,11 +5,58 @@ body {
   margin: 10px;
 }
 .thumbnail {
-  border-style: solid;
-  border-color: black;
+  width: 110px;
+  /* border: solid; */
+  /* border-color: black; */
+  /* padding-left: 100px; */
   padding: 5px;
 }
 .thumbnail img{
-  max-height: 100px;
+  max-height: 120px;
 }
 
+.addBtn{
+  position: relative; 
+  top: 2%; 
+  left: 95%; 
+  /* transform: translate(-65%,2%); */
+}
+
+
+.menuItems{
+  margin-left: 900px;
+}
+
+.forms {
+  padding-top: 100px;
+  margin: auto;
+}
+
+.logout{
+  float:right;
+  padding-top:20px;
+
+  /* display:inline-block; */
+  
+}
+
+.deleteBtn{
+  position: absolute; 
+  /* top: 16%;  */
+  left: 400%; 
+  transform: translate(-65%,2%);
+}
+
+.logoutBtn{
+  position: relative; 
+  top: 16%; 
+  left: 93%; 
+  transform: translate(-65%,2%);
+}
+
+
+.orders{
+  padding-top: 20px;
+  margin: 30px; 
+
+}

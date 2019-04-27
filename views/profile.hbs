@@ -1,0 +1,34 @@
+
+
+<div class="logout">
+    {{#if user}}
+        <p>Welcome, {{user}} !</p>
+         
+    {{/if}}
+    <a href="/logout" class="btn btn-danger logoutBtn">Logout</a>
+</div>
+
+<h1 style="padding-top: 50px;"> Transaction History </h1>
+<div class="orders">
+{{#each orders}}
+<h3 class="alert alert-info">Order Placed</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+      {{!-- <div class="panel-footer">${{this.cart.totalPrice}}</div> --}}
+  </div>
+    <ul class="list-group">
+        {{#each this.items}}
+        <li class="list-group-item">
+            <span class="badge">${{this.price}}</span>
+            {{this.item.title}} | {{this.qty}} </span>
+        </li>
+        {{/each}}
+        </strong><li class="list-group-item"><strong>Your Total: ${{this.cart.totalPrice}} </strong></li> 
+            </ul>
+
+ 
+
+</div>
+<br>
+{{/each}}
+</div>
