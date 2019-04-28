@@ -21,7 +21,7 @@ const Order = require('./models/order');
 var mongoose = require('mongoose');
 var MongoDBStore = require('connect-mongodb-session')(session);
 var mongodb = require('mongodb');
-var myUrl = 'mongodb://heroku_k32zl7f7:hmnjbost683duisu6ajdq5ta6v@ds153677.mlab.com:53677/heroku_k32zl7f7'; 
+var myUrl = 'mongodb+srv://anandinichawla:lhotse8k@cluster0-gkoxd.azure.mongodb.net/test?retryWrites=true'; 
 // mongoose.connect(myUrl, { useNewUrlParser: true }
 // ).then(() => console.log('MongoDB Connected'))
 //   .catch(err => console.log("error=======" +  err)); 
