@@ -19,14 +19,14 @@ const User = require('./models/User');
 const Cart = require('./models/cart'); 
 const Order = require('./models/order');
 var mongoose = require('mongoose');
-var MongoDBStore = require('connect-mongodb-session')(session);
+// var MongoDBStore = require('connect-mongodb-session')(session);
 var mongodb = require('mongodb');
 var url = 'mongodb://heroku_k32zl7f7:hmnjbost683duisu6ajdq5ta6v@ds153677.mlab.com:53677/heroku_k32zl7f7'; 
 mongodb.MongoClient.connect(url, { useNewUrlParser: true }
 ).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err)); 
+  .catch(err => console.log("error=======" +  err)); 
 
-var store = new MongoDBStore({ mongooseConnection: mongoose.connection });
+// var store = new MongoDBStore({ mongooseConnection: mongoose.connection });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
@@ -38,10 +38,10 @@ const sessionOptions = {
 	secret: 'qwertyuiop', 
 	saveUninitialized: false, 
   resave: false,
-  cookie: {
-    maxAge: 180 * 60 * 1000 
-  },
-  store: store, 
+  // cookie: {
+  //   maxAge: 180 * 60 * 1000 
+  // },
+  // store: store, 
 };
 app.use(session(sessionOptions));
 app.use(cflash());
