@@ -303,8 +303,9 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
 
 
 
+const PORT = process.env.PORT || 3000; 
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
   console.log("the app is listening on 3000");
 });
 
