@@ -306,8 +306,8 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
 
 const PORT = process.env.PORT || 3000; 
 
-app.listen(PORT, function(){
-  console.log("PORT IS = " + PORT);
+app.listen(27017 , function(){
+  console.log("PORT IS = " );
   console.log("the app is listening on 3000");
   mongoose.connect(myUrl, { useNewUrlParser: true }
     ).then(() => console.log('MongoDB Connected'))
