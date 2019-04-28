@@ -22,9 +22,9 @@ var mongoose = require('mongoose');
 var MongoDBStore = require('connect-mongodb-session')(session);
 var mongodb = require('mongodb');
 var myUrl = 'mongodb://heroku_k32zl7f7:hmnjbost683duisu6ajdq5ta6v@ds153677.mlab.com:53677/heroku_k32zl7f7'; 
-mongoose.connect(myUrl, { useNewUrlParser: true }
-).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log("error=======" +  err)); 
+// mongoose.connect(myUrl, { useNewUrlParser: true }
+// ).then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log("error=======" +  err)); 
 
 var store = new MongoDBStore({ mongooseConnection: mongoose.connection });
 
@@ -309,6 +309,9 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, function(){
   console.log("PORT IS = " + PORT);
   console.log("the app is listening on 3000");
+  mongoose.connect(myUrl, { useNewUrlParser: true }
+    ).then(() => console.log('MongoDB Connected'))
+      .catch(err => console.log("error=======" +  err)); 
 });
 
 
