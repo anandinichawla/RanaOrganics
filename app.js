@@ -21,8 +21,9 @@ const Order = require('./models/order');
 var mongoose = require('mongoose');
 // var MongoDBStore = require('connect-mongodb-session')(session);
 var mongodb = require('mongodb');
-require('dotenv');
-var myUrl = process.env.MONGODURI || 'mongodb+srv://anandinichawla:lhotse8k@cluster0-gkoxd.azure.mongodb.net/test?retryWrites=true'; 
+require('dotenv').config({path: '/Users/anandinichawla/Documents/AITSpring2019/homeworks/anandinichawla-final-project/.env'}); 
+
+// console.log("my url= " + myUrl);
 // mongoose.connect(myUrl, { useNewUrlParser: true }
 // ).then(() => console.log('MongoDB Connected'))
 //   .catch(err => console.log("error=======" +  err)); 
@@ -302,7 +303,7 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
 
 
 
-
+// console.log()
 
 
 const PORT = process.env.PORT || 3000; 
@@ -310,7 +311,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT , function(){
   console.log("PORT IS = " + PORT);
   console.log("the app is listening on " + PORT);
-  mongoose.connect(myUrl, { useNewUrlParser: true }
+  console.log("uri is = " + process.env.MONGODB_URI); 
+  mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }
     ).then(() => console.log('MongoDB Connected'))
       .catch(err => console.log("error=======" +  err)); 
 });
