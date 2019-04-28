@@ -1,7 +1,7 @@
 var Product = require('../models/product'); 
 var mongoose = require('mongoose'); 
 
-mongoose.connect('mongodb://localhost/shopping', { useNewUrlParser: true }); 
+// mongoose.connect('mongodb://localhost/shopping', { useNewUrlParser: true }); 
 var products = [
     
     new Product({
@@ -152,18 +152,18 @@ var products = [
 
 
 
-console.log("products=" + products);
+
 
 for(var i = 0; i < products.length; i++){
-    console.log("in loop");
+    
     products[i].save((err, res) => {
-        console.log("result " + res);
+        
         if(err){
             console.log('uh oh error on save to mongo');
         }
         else{
-            console.log("im igood = " + res);
-            console.log("saving");
+            
+           
         }
  
     });
@@ -171,8 +171,3 @@ for(var i = 0; i < products.length; i++){
 
 
 }
-console.log("out of loop");
-
-
-
-// mongoose.disconnect(); 

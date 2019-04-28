@@ -20,17 +20,13 @@ const Cart = require('./models/cart');
 const Order = require('./models/order');
 var mongoose = require('mongoose');
 var MongoDBStore = require('connect-mongodb-session')(session);
-mongoose.connect('mongodb://localhost/shopping', { useNewUrlParser: true }
+var url = process.env.MONGODB_URI || 'mongodb://localhost/shopping'; 
+mongoose.connect(url, { useNewUrlParser: true }
 ).then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err)); 
 
 var store = new MongoDBStore({ mongooseConnection: mongoose.connection });
-// var expressHbs = require('express-handlebars');
-// app.use(function (req, res, next) {
-//   console.log('Time:', Date.now());
-//   next();
-// });
-console.log("store is = " + store); 
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
@@ -85,37 +81,11 @@ app.get('/', (req, res) => {
       res.status(500).json({ error: '....' });
     } else {
       
-      console.log("in index products are = " + docs);
       res.render('shop', {products: docs, successMessage: successMessage });
     }
   });
 
 });
-
-
-// app.get('/login', csrfProtection, (req,res)=> {
-//   console.log("token= " + req.csrfToken());
-//   var messages = req.flash('error');
-//   res.render('login', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
-  
-// }); 
-
-// app.post("/login",
-// //  function(req,res,next){
-//    passport.authenticate("local", {
-//     // console.log("sakdal");
-//    successRedirect: '/profile',
-//   failureRedirect: '/login',
-//   failureFlash: true 
-
-  
-// })); 
-
-
-//  app.get('/error' , (req, res, next) => {
-//    res.render('error');
-//  }); 
-
 
 //addtocart 
 
@@ -126,19 +96,15 @@ app.get('/add-to-cart/:id', function(req, res, next){
 
     Product.findById(productId, function(err, product){
        if(err){
-         console.log("error++++ = " + err); 
          return res.redirect('/'); 
        }
        cart.add(product, product.id); 
        req.session.cart = cart; 
-       console.log("logging cart === " + Object.keys(req.session.cart)); 
-       console.log("product in cart= " + product); 
        res.redirect('/'); 
     }); 
 });
 
 app.get('/shoppingcart', function(req, res, next){
-  console.log("I have redirected now");
   if(!req.session.cart){
     return res.render('shoppingcart', {products: null}); 
   }
@@ -149,7 +115,6 @@ app.get('/shoppingcart', function(req, res, next){
 app.get('/delete/:id', function(req,res,next){
 
   let productId = req.params.id; 
-  console.log("product id is = " + productId);
   let cart = new Cart(req.session.cart ? req.session.cart: {}); 
 
   cart.deleteItem(productId); 
@@ -241,7 +206,6 @@ app.get('signin',forwardAuthenticated, (req,res,next) =>{
   res.render('signin');
 }); 
 app.get('/profile', ensureAuthenticated, (req,res,next) => {
-  console.log("im redirecting");
   Order.find({user: req.user}, function (err, orders) {
     if(err){
       return res.write('Error!'); 
@@ -283,7 +247,6 @@ app.get('/checkout', ensureAuthenticated, (req,res, next) => {
   }
   const cart = new Cart(req.session.cart); 
   const errorMessage = req.flash('error')[0]; 
-  console.log("error Message is = " + errorMessage);
   res.render('checkout', {totalPrice: cart.totalPrice, errorMessage: errorMessage, noError: !errorMessage});
 }); 
 
@@ -300,7 +263,6 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
 // Token is created using Checkout or Elements!
 // Get the payment token ID submitted by the form:
   const token = req.body.stripeToken; // Using Express
-  console.log("token= " + token);
   stripe.charges.create({
           amount: cart.totalPrice * 100,
           currency: 'usd',
@@ -310,7 +272,6 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
         }, function(err, charge){
             //console.log("charge id is = " + charge.id); 
             if(err){
-              console.log("I am redirecing to checkout" + err);
               req.flash('error', err.message); 
               return res.redirect('/checkout');
             }
@@ -321,10 +282,9 @@ app.post('/checkout', ensureAuthenticated, (req,res, next) =>{
               name: req.body.name,
               paymentId: charge.id
             }); 
-            console.log("order is " + order);
+            
             order.save(function(err, result){
               if(err){
-                console.log("errror is storing order " + err); 
                 return res.redirect('/checkout');
               }
               req.flash('success',' Order placed!! Yummys are coming soon:))'); 
@@ -348,6 +308,5 @@ app.listen(3000, function(){
   console.log("the app is listening on 3000");
 });
 
-console.log("app connected");
 
 module.exports = app;

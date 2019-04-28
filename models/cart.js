@@ -13,13 +13,12 @@ module.exports = function Cart(oldCart){
           this.totalQty++; 
         //   console.log()
           this.totalPrice += (storedItem.item.price*1); 
-          console.log("totalPrice is = " + this.totalPrice);
+         
 
     }
 
     this.deleteItem = function(id){
 
-        console.log("I have ID = " + id);
         this.totalQty -= this.items[id].qty; 
         this.totalPrice -= this.items[id].price; 
         delete this.items[id];
