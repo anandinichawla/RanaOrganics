@@ -20,7 +20,7 @@ const Cart = require('./models/cart');
 const Order = require('./models/order');
 var mongoose = require('mongoose');
 var MongoDBStore = require('connect-mongodb-session')(session);
-var url = process.env.MONGODB_URI || 'mongodb://localhost/shopping'; 
+var url = 'mongodb://localhost/shopping'; 
 mongoose.connect(url, { useNewUrlParser: true }
 ).then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err)); 
