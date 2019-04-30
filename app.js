@@ -23,12 +23,7 @@ var mongoose = require('mongoose');
 var mongodb = require('mongodb');
 require('dotenv').config({path: '/Users/anandinichawla/Documents/AITSpring2019/homeworks/anandinichawla-final-project/.env'}); 
 
-// console.log("my url= " + myUrl);
-// mongoose.connect(myUrl, { useNewUrlParser: true }
-// ).then(() => console.log('MongoDB Connected'))
-//   .catch(err => console.log("error=======" +  err)); 
 
-// var store = new MongoDBStore({ mongooseConnection: mongoose.connection });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
@@ -58,16 +53,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.use(csrfProtection);
 
-
-// app.use(function (err, req, res, next) {
-//   if (err.code !== 'EBADCSRFTOKEN') return next(err); 
-
-//   // handle CSRF token errors here
-//   res.status(403);
-//   res.send('form tampered with'); 
-// });
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -225,9 +211,7 @@ app.get('/profile', ensureAuthenticated, (req,res,next) => {
 
 // Login
 app.post('/login', (req, res, next) => {
-  // console.log(req.flash('success_msg'));
-  // console.log(req.flash('error_msg'));
-  // console.log(req.flash('error'));
+  
   console.log(res.locals);
   passport.authenticate('local', {
     successRedirect: '/profile',
@@ -311,10 +295,9 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT , function(){
   console.log("PORT IS = " + PORT);
   console.log("the app is listening on " + PORT);
-  console.log("uri is = " + process.env.MONGODB_URI); 
   mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }
     ).then(() => console.log('MongoDB Connected'))
-      .catch(err => console.log("error=======" +  err)); 
+      .catch(err => console.log("error" +  err)); 
 });
 
 
