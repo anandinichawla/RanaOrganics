@@ -86,9 +86,6 @@ The site map is subject to change as the project progresses.
     * User will be of one type - guest or logged in
     * Testing has not been done yet
     * Possible implementation of signing with facebook or gmail logins 
-* (4 points) Unit Testing
- * I will be unit testing with mocha 
- * I will unit test for logins and other functionalities of the user
 * (2 points) CSS Framework
     * I will use bootstrap 
     * I will try to make the website responsive 
@@ -96,7 +93,7 @@ The site map is subject to change as the project progresses.
     * Stripe Payment Views 
     * I will add a payment checkout system 
 
-14 points total out of 8 required points
+10 points total out of 8 required points
 
 
 ## [Link to Initial Main Project File](/src/app.js) 
